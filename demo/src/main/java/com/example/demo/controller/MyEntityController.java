@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.service.MyEntityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -17,6 +18,11 @@ public class MyEntityController {
     @PostMapping("/file")
     public ResponseEntity<String> addedFileInVersion(MultipartHttpServletRequest request) throws IOException {
         return service.addFileVersion(request);
+    }
+
+    @GetMapping("/cycle")
+    public ResponseEntity<String> callCycleFileInVersion() throws IOException {
+        return service.downloadAndAddMultipart();
     }
 }
 
