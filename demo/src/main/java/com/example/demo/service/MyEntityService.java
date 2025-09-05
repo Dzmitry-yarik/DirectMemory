@@ -34,7 +34,7 @@ public class MyEntityService {
     private static final String POST_URL = "http://localhost:8088/file";
 
     public ResponseEntity<String> downloadAndAddMultipart() {
-        for (int fileSize = 100; fileSize <= 800; fileSize += 100) {
+        for (int fileSize = 400; fileSize <= 800; fileSize += 100) {
             byte[] fileBytes = generateFileContent(fileSize * 1024 * 1024);
 
             for (int i = 0; i < 10; i++) {
